@@ -9,14 +9,28 @@ Notifique o condutor localmente via alertas visuais (LED/OLED).
 Transmita dados de telemetria via Wi-Fi para monitoramento remoto.
 Garanta a integridade da carga e a conformidade com normas de bem-estar animal.
 
-#Tecnologias e Periféricos
-* Linguagem: C (Pico SDK)
-* Microcontrolador: Raspberry Pi Pico W (RP2040)
-* Sensor: MPU6050 (Acelerômetro/Giroscópio via I2C)
-* Display: OLED 128x64 (via I2C com suporte a DMA)
-* Conectividade: Wi-Fi (Protocolo HTTP/MQTT)
-* Feedback: LED RGB e Interface UART
+# Destaques Técnicos do Projeto:
+Separação de Privilégios de Visualização: A interface de operação (status em tempo real) é distinta da interface de auditoria (Rating de condução), acessível apenas via hardware (Botão B).
 
+Tratamento de Interrupções (IRQ): Uso de handlers para reconhecimento de alertas (Botão A), otimizando o ciclo de processamento do RP2040.
+
+Lógica de Auditoria: Implementação de um contador de eventos críticos para gerar uma nota de desempenho (A, B ou C) baseada no bem-estar animal.
+
+# Tecnologias e Periféricos (Atualizado)
+* Linguagem: C (Pico SDK).
+* Microcontrolador: Raspberry Pi Pico W (RP2040).
+* Sensores e Entrada:
+    * Joystick Analógico (ADC): Utilizado para a simulação de forças inerciais (eixos X e Y) e detecção de incidentes de condução.
+    * Botão A (GPIO): Interrupção de hardware para reconhecimento (Acknowledge) de alertas críticos.
+    * Botão B (GPIO): Interface de consulta para exibição do Rating de Auditoria.
+* Display: OLED 128x64 (via I2C) com atualização dinâmica de status e telemetria de auditoria.
+* Feedback Visual e Sonoro:
+    * LED RGB: Indicação visual de status (Verde: OK | Amarelo: Aviso | Vermelho: Alerta Crítico).
+    * Buzzer Piezoelétrico: Alerta sonoro de alta intensidade para eventos de impacto excessivo.
+* Conectividade e Auditoria:
+    * Edge Computing: Processamento local de dados para classificação de desempenho em tempo real.
+    * Rating de Condução: Algoritmo interno para registro de incidentes e atribuição de nota (A, B ou C).
+      
 # Instruções de Instalação e Execução
 1. Pré-requisitos e Dependências
 Para compilar e enviar o código para a BitDogLab, você precisará de:
