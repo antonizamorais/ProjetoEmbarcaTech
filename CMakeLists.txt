@@ -49,7 +49,8 @@ target_link_libraries(AgroMimu
         pico_stdlib
         hardware_gpio
         hardware_i2c
-        hardware_pwm)
+        hardware_pwm
+        hardware_adc)
 
 # Add the standard include files to the build
 target_include_directories(AgroMimu PRIVATE
