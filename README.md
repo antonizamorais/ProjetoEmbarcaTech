@@ -16,7 +16,7 @@ Tratamento de Interrupções (IRQ): Uso de handlers para reconhecimento de alert
 
 Lógica de Auditoria: Implementação de um contador de eventos críticos para gerar uma nota de desempenho (A, B ou C) baseada no bem-estar animal.
 
-# Tecnologias e Periféricos (Atualizado)
+# Tecnologias e Periféricos
 * Linguagem: C (Pico SDK).
 * Microcontrolador: Raspberry Pi Pico W (RP2040).
 * Sensores e Entrada:
